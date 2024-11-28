@@ -9,4 +9,11 @@ public class AppDbContext : DbContext
     public DbSet<Author> Authors {get; set;}
     public DbSet<Loan> Loans {get; set;}
     public DbSet<BookAuthor> BookAuthors {get; set;}
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer("Server=DESKTOP-EHB8M0R;Database=Library;Trusted_Connection=True;TrustServerCertificate=True; ");
+    }
+
 }
+

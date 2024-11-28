@@ -8,7 +8,7 @@ namespace library.Models
         public string Title {get; set;}
 
         public DateTime published {get; set;}
-        public ICollection<Author> Authors{get; set;}
+        public ICollection<BookAuthor> BookAuthors {get; set;}
         public ICollection<Loan> Loans {get; set;}
     }
 }
