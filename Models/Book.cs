@@ -9,5 +9,6 @@ namespace library.Models
 
         public DateTime published {get; set;}
         public ICollection<Author> Authors{get; set;}
+        public ICollection<Loan> Loans {get; set;}
     }
 }
