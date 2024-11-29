@@ -20,6 +20,11 @@ public class Add
                 Published = publishedDate
             };
             context.Books.Add(newBook);
+            var newBookAuthor = new BookAuthor
+            {
+                Book = newBook,
+            };
+            context.bookAuthors.Add(newBookAuthor);
             context.SaveChanges();
         }
     }
@@ -38,8 +43,14 @@ public class Add
                 Age = AuthorAge
             };
             context.Authors.Add(newAuthor);
+            var newBookAuthor = new BookAuthor
+            {
+                Author = newAuthor,
+            };
+            context.bookAuthors.Add(newBookAuthor);
             context.SaveChanges();
         }
+    
     }
 
 }
