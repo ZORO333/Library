@@ -13,9 +13,10 @@ public class Add
         
             System.Console.WriteLine("Skriv in book titel:");
             string bookTitle = Console.ReadLine();
+
             System.Console.WriteLine("Skriv in publicerade datum:");
             DateTime publishedDate;
-            while(!DateTime.TryParse(Console.ReadLine(), out publishedDate));
+            while(!DateTime.TryParse(Console.ReadLine(), out publishedDate))
             {
                 System.Console.WriteLine("Fel formatering försök igen....");
             }
@@ -26,11 +27,6 @@ public class Add
                 Published = publishedDate
             };
             context.Books.Add(newBook);
-            var newBookAuthor = new BookAuthor
-            {
-                Book = newBook,
-            };
-            context.bookAuthors.Add(newBookAuthor);
             context.SaveChanges();
         }
 
@@ -50,11 +46,6 @@ public class Add
                 Age = AuthorAge
             };
             context.Authors.Add(newAuthor);
-            var newBookAuthor = new BookAuthor
-            {
-                Author = newAuthor,
-            };
-            context.bookAuthors.Add(newBookAuthor);
             context.SaveChanges();
         }
     
@@ -101,7 +92,7 @@ public class Add
             System.Console.WriteLine("Nytt lån sparat.");
         }
     }
-    public static void BookAuthor()
+    public static void AddBookAuthor()
     {
         using(var context = new AppDbContext())
         {

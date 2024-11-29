@@ -13,7 +13,9 @@ public class mylibrary
         System.Console.WriteLine("4. Visa författare");
         System.Console.WriteLine("5. Lägg till lån");
         System.Console.WriteLine("6. Visa lån");
-        System.Console.WriteLine("7. Stäng av bibloteket");
+        System.Console.WriteLine("7. Lägg till BokFörfattare");
+        System.Console.WriteLine("8. visa bokFörfattare");
+        System.Console.WriteLine("9. Stäng av bibloteket");
         System.Console.WriteLine("Skriv in ditt val:");
 
         bool run = true;
@@ -49,6 +51,12 @@ public class mylibrary
                     System.Console.WriteLine("Lån visades");
                     break;
                 case "7":
+                    Add.AddBookAuthor();
+                    break;
+                case "8":
+                    Read.ReadbookAuthor();
+                    break;                    
+                case "9":
                     run = false;
                     System.Console.WriteLine("Biblotekt har stängts");
                     break;
