@@ -1,3 +1,4 @@
+using System.IO.Compression;
 using library.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -73,6 +74,33 @@ public class Read
             else
             {
                 System.Console.WriteLine("Inga lån hittades i databasen.");
+            }
+        }
+    }
+    public static void ReadbookAuthor()
+    {
+        using (var context = new AppDbContext())
+        {
+            var bookAuthor = context.bookAuthors
+                .Include(b => b.Book)
+                .ThenInclude(ba => ba.BookAuthors)
+                .Include(a => a.Author)
+                .ThenInclude(ba => ba.BookAuthors)
+                .ToList();
+        
+
+            //kontroll
+            if(bookAuthor.Any())
+            {
+                foreach(var bookAuthor1 in bookAuthor)
+                {
+                    System.Console.WriteLine($"Bok-ID: {bookAuthor1.BookID}, Författare-ID; {bookAuthor1.AuthorID}");
+                }
+                
+            }
+            else
+            {
+                System.Console.WriteLine("Inga Bokförfattare hittades i databasen.");
             }
         }
     }

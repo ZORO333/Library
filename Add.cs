@@ -98,8 +98,49 @@ public class Add
             };
             context.Loans.Add(newLoan);
             context.SaveChanges();
-            System.Console.WriteLine("Nyy lån sparat.");
+            System.Console.WriteLine("Nytt lån sparat.");
         }
+    }
+    public static void BookAuthor()
+    {
+        using(var context = new AppDbContext())
+        {
+            System.Console.WriteLine("Välj bok från listan:");
+            var books = context.Books.ToList();
+            foreach (var book in books)
+            {
+                System.Console.WriteLine($"ID:{book.ID}, Titel: {book.Title} ");
+            }
+            System.Console.WriteLine("Ange bok-ID:");
+            int bookID;
+            while(!int.TryParse(Console.ReadLine(),out bookID))
+            {
+                System.Console.WriteLine("Fel bok-ID, försök igen....");
+            }
+
+            System.Console.WriteLine("Välj bok från listan:");
+            var authors = context.Authors.ToList();
+            foreach (var author in authors)
+            {
+                System.Console.WriteLine($"ID:{author.ID}, Namn: {author.Name}, Older: {author.Age}");
+            }
+            System.Console.WriteLine("Ange bok-ID:");
+            int authorID;
+            while(!int.TryParse(Console.ReadLine(),out authorID))
+            {
+                System.Console.WriteLine("Fel bok-ID, försök igen....");
+            }
+            
+            var newBookauthor = new BookAuthor
+            {
+                BookID = bookID,
+                AuthorID = authorID
+            };
+            context.bookAuthors.Add(newBookauthor);
+            context.SaveChanges();
+            System.Console.WriteLine("Nytt bookAuthor sparat.");
+        }
+        
     }
 
 }
