@@ -77,14 +77,28 @@ public class Add
             {
                 System.Console.WriteLine("Fel formatering försök igen....");
             }
+            System.Console.WriteLine("Välj bok från listan:");
+            var books = context.Books.ToList();
+            foreach (var book in books)
+            {
+                System.Console.WriteLine($"ID:{book.ID}, Titel: {book.Title} ");
+            }
+            System.Console.WriteLine("Ange bok-ID:");
+            int bookID;
+            while(!int.TryParse(Console.ReadLine(),out bookID))
+            {
+                System.Console.WriteLine("Fel bok-ID, försök igen....");
+            }
             var newLoan = new Loan
             {
                 Name = name,
                 LoanDate = loandata,
-                ReturnDate = returndate
+                ReturnDate = returndate,
+                BookID = bookID
             };
             context.Loans.Add(newLoan);
             context.SaveChanges();
+            System.Console.WriteLine("Nyy lån sparat.");
         }
     }
 
