@@ -1,3 +1,5 @@
+using System.Net.NetworkInformation;
+using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using library.Models;
 
@@ -12,7 +14,11 @@ public class Add
             System.Console.WriteLine("Skriv in book titel:");
             string bookTitle = Console.ReadLine();
             System.Console.WriteLine("Skriv in publicerade datum:");
-            DateTime publishedDate = DateTime.Parse(Console.ReadLine());
+            DateTime publishedDate;
+            while(!DateTime.TryParse(Console.ReadLine(), out publishedDate));
+            {
+                System.Console.WriteLine("Fel formatering försök igen....");
+            }
 
             var newBook = new Book
             {
@@ -27,6 +33,7 @@ public class Add
             context.bookAuthors.Add(newBookAuthor);
             context.SaveChanges();
         }
+
     }
     public static void AddAuthor()
     {
@@ -51,6 +58,34 @@ public class Add
             context.SaveChanges();
         }
     
+    }
+    public static void Addloan()
+    {
+        using(var context = new AppDbContext())
+        {
+            System.Console.WriteLine("Skriv in låntagares namn:");
+            string name = Console.ReadLine();
+            System.Console.WriteLine("Skriv in låne datum");
+            DateTime loandata;
+            while(!DateTime.TryParse(Console.ReadLine(), out loandata))
+            {
+                System.Console.WriteLine("Fel formatering försök igen....");
+            }
+            System.Console.WriteLine("Skriv in retur datum:");
+            DateTime returndate;
+            while(!DateTime.TryParse(Console.ReadLine(), out returndate))
+            {
+                System.Console.WriteLine("Fel formatering försök igen....");
+            }
+            var newLoan = new Loan
+            {
+                Name = name,
+                LoanDate = loandata,
+                ReturnDate = returndate
+            };
+            context.Loans.Add(newLoan);
+            context.SaveChanges();
+        }
     }
 
 }
