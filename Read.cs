@@ -28,4 +28,28 @@ public class Read
         }
  
     }
+    public static void ReadAuthor()
+    {
+        using (var context = new AppDbContext())
+        {
+            var authors = context.Authors
+                .Include(a => a.BookAuthors)
+                .ToList();
+        
+
+            //kontroll
+            if(authors.Any())
+            {
+                foreach(var author in authors)
+                {
+                    System.Console.WriteLine($"Författarens namn: {author.Name}, Författarens older; {author.Age}");
+                }
+                
+            }
+            else
+            {
+                System.Console.WriteLine("Inga författare hittades i databasen.");
+            }
+        }
+    }
 }
