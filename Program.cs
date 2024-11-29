@@ -10,6 +10,7 @@ public class mylibrary
         System.Console.WriteLine("1. Lägg till böcker");
         System.Console.WriteLine("2. Visa böcker");
         System.Console.WriteLine("3. Stäng av bibloteket");
+        System.Console.WriteLine("Skriv in ditt val:");
 
         bool run = true;
 
@@ -25,6 +26,7 @@ public class mylibrary
                     break;
                 case "2":
                     Read.Readbook();
+                    System.Console.WriteLine("Böcker visades");
                     break;
                 case "3":
                     run = false;

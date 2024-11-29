@@ -23,7 +23,7 @@ public class Read
             }
             else
             {
-                System.Console.WriteLine("Inga personer hittades i databasen.");
+                System.Console.WriteLine("Inga Böcker hittades i databasen.");
             }
         }
  

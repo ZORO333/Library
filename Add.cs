@@ -9,7 +9,7 @@ public class Add
         {
 
         
-            System.Console.WriteLine("Skriv in book titel");
+            System.Console.WriteLine("Skriv in book titel:");
             string bookTitle = Console.ReadLine();
             System.Console.WriteLine("Skriv in publicerade datum:");
             DateTime publishedDate = DateTime.Parse(Console.ReadLine());
@@ -20,6 +20,26 @@ public class Add
                 Published = publishedDate
             };
             context.Books.Add(newBook);
+            context.SaveChanges();
         }
     }
+    public static void AddAuthor()
+    {
+        using(var context = new AppDbContext())
+        {
+            System.Console.WriteLine("Skriv in författarens namn:");
+            string AuthorName = Console.ReadLine();
+            System.Console.WriteLine("Skriv in författarens older:");
+            string AuthorAge = Console.ReadLine();
+
+            var newAuthor = new Author
+            {
+                Name = AuthorName,
+                Age = AuthorAge
+            };
+            context.Authors.Add(newAuthor);
+            context.SaveChanges();
+        }
+    }
+
 }
