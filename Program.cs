@@ -8,7 +8,8 @@ public class mylibrary
     {
         System.Console.WriteLine("Min biblotek");
         System.Console.WriteLine("1. Lägg till böcker");
-        System.Console.WriteLine("2. Stäng av bibloteket");
+        System.Console.WriteLine("2. Visa böcker");
+        System.Console.WriteLine("3. Stäng av bibloteket");
 
         bool run = true;
 
@@ -23,6 +24,9 @@ public class mylibrary
                     System.Console.WriteLine("Böckerna har lagts till");
                     break;
                 case "2":
+                    Read.Readbook();
+                    break;
+                case "3":
                     run = false;
                     System.Console.WriteLine("Biblotekt har stängts");
                     break;
