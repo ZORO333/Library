@@ -58,7 +58,9 @@ public class mylibrary
                     Read.ReadbookAuthor();
                     break;
                 case "9":
-                    Remove.RemoveBook();
+                    System.Console.WriteLine("Ange för Bokens ID;");
+                    int bookID = Convert.ToInt32(Console.ReadLine());
+                    Remove.RemoveBook(bookID);
                     break;                   
                 case "10":
                     run = false;

@@ -11,13 +11,23 @@ public class Remove
             try
             {
                 var book = context.Books.Find(bookID);
-                if (book != null)
+                if(book != null)
                 {
-                    context.bookAuthors.RemoveRange(context.bookAuthors.Where(ba => ba.BookID == bookID));
+                    var bookAuthors = context.bookAuthors.Where(ba => ba.BookID == bookID).ToList();
+                    if (bookAuthors.Any())
+                    {
+                        context.bookAuthors.RemoveRange(bookAuthors);
+                    }
+                    var Loans = context.Loans.Where(l => l.BookID == bookID).ToList();
+                    if(Loans.Any())
+                    {
+                        context.Loans.RemoveRange(Loans);
+                    }
+                    context.Books.Remove(book);
+                    context.SaveChanges();
+                    transaction.Commit();
+                    System.Console.WriteLine("Boken har tagits bort");
                 }
-                context.SaveChanges();
-                transaction.Commit();
-                System.Console.WriteLine("Boken har tagits bort");
 
             }
             catch (Exception ex)
