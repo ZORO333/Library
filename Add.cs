@@ -56,13 +56,13 @@ public class Add
         {
             System.Console.WriteLine("Skriv in låntagares namn:");
             string name = Console.ReadLine();
-            System.Console.WriteLine("Skriv in låne datum");
+            System.Console.WriteLine("Skriv in låne datum t.ex: (åååå-mm-dd)");
             DateTime loandata;
             while(!DateTime.TryParse(Console.ReadLine(), out loandata))
             {
                 System.Console.WriteLine("Fel formatering försök igen....");
             }
-            System.Console.WriteLine("Skriv in retur datum:");
+            System.Console.WriteLine("Skriv in retur datum t.ex: (åååå-mm-dd):");
             DateTime returndate;
             while(!DateTime.TryParse(Console.ReadLine(), out returndate))
             {
@@ -115,11 +115,11 @@ public class Add
             {
                 System.Console.WriteLine($"ID:{author.ID}, Namn: {author.Name}, Older: {author.Age}");
             }
-            System.Console.WriteLine("Ange bok-ID:");
+            System.Console.WriteLine("Ange Författare-ID:");
             int authorID;
             while(!int.TryParse(Console.ReadLine(),out authorID))
             {
-                System.Console.WriteLine("Fel bok-ID, försök igen....");
+                System.Console.WriteLine("Fel Författare-ID, försök igen....");
             }
             
             var newBookauthor = new BookAuthor

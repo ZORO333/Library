@@ -104,4 +104,54 @@ public class Read
             }
         }
     }
+    public static void ListBooksByAuthor(string authorName)
+    {
+        using (var context = new AppDbContext())
+        {
+            var books = context.Books
+                .Include(b => b.BookAuthors)
+                .ThenInclude(ba => ba.Author)
+                .Where(b => b.BookAuthors.Any(ba => ba.Author.Name == authorName))
+                .ToList();
+            if(books.Any())
+            {
+                System.Console.WriteLine($"Böcker av {authorName}");
+                foreach(var book in books)
+                {
+                    System.Console.WriteLine($"-{book.Title}");
+                }
+            }
+            else
+            {
+                System.Console.WriteLine($"Ingen bok hittades för författaren {authorName}");
+            }
+        }
+        
+    }
+
+
+    public static void ListAuthorsBybook(string BookTitle)
+    {
+        using (var context = new AppDbContext())
+        {
+            var authors = context.Authors
+                .Include(a => a.BookAuthors)
+                .ThenInclude(ba => ba.Book)
+                .Where(a => a.BookAuthors.Any(ba => ba.Book.Title == BookTitle))
+                .ToList();
+            if(authors.Any())
+            {
+                System.Console.WriteLine($"Författare för boken{BookTitle}");
+                foreach(var author in authors)
+                {
+                    System.Console.WriteLine($"-{author.Name}");
+                }
+            }
+            else
+            {
+                System.Console.WriteLine($"Ingen författare hittades för boken {BookTitle}");
+            }
+        }
+        
+    }
 }
