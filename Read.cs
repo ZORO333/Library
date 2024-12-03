@@ -154,4 +154,28 @@ public class Read
         }
         
     }
+    public static void ShowLoanHistory()
+    {
+        using (var context = new AppDbContext())
+        {
+            var loans = context.Loans
+                .Include(l => l.Book)
+                .OrderBy(l => l.LoanDate)
+                .ToList();
+            if(loans.Any())
+            {
+                System.Console.WriteLine("Lånehistorik");
+                foreach (var loan in loans)
+                {
+                    System.Console.WriteLine($"Bok: {loan.Book.Title}, lånad av: {loan.Name}, lånedatum: {loan.LoanDate:åååå-mm-dd}, Returdatum: {loan.ReturnDate:åååå-mm-dd}");
+                }
+
+            }
+            else
+            {
+                System.Console.WriteLine("Ingen lånehistorik hittades");
+            }
+        }
+        
+    }
 }

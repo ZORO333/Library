@@ -13,13 +13,14 @@ public class mylibrary
         System.Console.WriteLine("4. Visa författare");
         System.Console.WriteLine("5. Lägg till lån");
         System.Console.WriteLine("6. Visa lån");
-        System.Console.WriteLine("7. Lägg till BokFörfattare");
-        System.Console.WriteLine("8. visa bokFörfattare");
-        System.Console.WriteLine("9. Lista alla böcker som mer än en författare har bidragt i");
-        System.Console.WriteLine("10. Lista alla författare som har bidragt i en viss bok");
-        System.Console.WriteLine("11. Tabort bok");
-        System.Console.WriteLine("12. Tabort förattare");
-        System.Console.WriteLine("13. Stäng av bibloteket");
+        System.Console.WriteLine("7. Visa låne historik");
+        System.Console.WriteLine("8. Lägg till BokFörfattare");
+        System.Console.WriteLine("9. visa bokFörfattare");
+        System.Console.WriteLine("10. Lista alla böcker som mer än en författare har bidragt i");
+        System.Console.WriteLine("11. Lista alla författare som har bidragt i en viss bok");
+        System.Console.WriteLine("12. Tabort bok");
+        System.Console.WriteLine("13. Tabort förattare");
+        System.Console.WriteLine("14. Stäng av bibloteket");
         System.Console.WriteLine("Skriv in ditt val:");
 
         bool run = true;
@@ -54,33 +55,36 @@ public class mylibrary
                     Read.ReadLoan();
                     System.Console.WriteLine("Lån visades");
                     break;
-                case "7":
-                    Add.AddBookAuthor();
+                case "7": 
+                    Read.ShowLoanHistory();
                     break;
                 case "8":
-                    Read.ReadbookAuthor();
+                    Add.AddBookAuthor();
                     break;
                 case "9":
+                    Read.ReadbookAuthor();
+                    break;
+                case "10":
                     System.Console.WriteLine("Ange förattarens namn");
                     string authorName = Console.ReadLine();
                     Read.ListBooksByAuthor(authorName);
                     break;
-                case "10":
+                case "11":
                     System.Console.WriteLine("Ange Bokens namn:");
                     string BookTitle = Console.ReadLine();
                     Read.ListAuthorsBybook(BookTitle);
                     break;
-                case "11":
+                case "12":
                     System.Console.WriteLine("Ange Bokens ID:");
                     int bookID = Convert.ToInt32(Console.ReadLine());
                     Remove.RemoveBook(bookID);
                     break;
-                case "12":
+                case "13":
                     System.Console.WriteLine("Ange författarens ID:");    
                     int authorID = Convert.ToInt32(Console.ReadLine());
                     Remove.RemoveAuthor(authorID);
                     break;               
-                case "13":
+                case "14":
                     run = false;
                     System.Console.WriteLine("Biblotekt har stängts");
                     break;
