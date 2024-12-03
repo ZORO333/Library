@@ -14,7 +14,7 @@ public class Add
             System.Console.WriteLine("Skriv in book titel:");
             string bookTitle = Console.ReadLine();
 
-            System.Console.WriteLine("Skriv in publicerade datum:");
+            System.Console.WriteLine("Skriv in publicerade datum t.ex (åååå-mm-dd):");
             DateTime publishedDate;
             while(!DateTime.TryParse(Console.ReadLine(), out publishedDate))
             {

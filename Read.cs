@@ -167,7 +167,7 @@ public class Read
                 System.Console.WriteLine("Lånehistorik");
                 foreach (var loan in loans)
                 {
-                    System.Console.WriteLine($"Bok: {loan.Book.Title}, lånad av: {loan.Name}, lånedatum: {loan.LoanDate:åååå-mm-dd}, Returdatum: {loan.ReturnDate:åååå-mm-dd}");
+                    System.Console.WriteLine($"Bok: {loan.Book.Title}, lånad av: {loan.Name}, lånedatum: {loan.LoanDate:yyyy-mm-dd}, Returdatum: {loan.ReturnDate:yyyy-mm-dd}");
                 }
 
             }

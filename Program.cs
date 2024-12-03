@@ -6,27 +6,29 @@ public class mylibrary
 {
     public static void Main()
     {
-        System.Console.WriteLine("Min biblotek");
-        System.Console.WriteLine("1. Lägg till böcker");
-        System.Console.WriteLine("2. Visa böcker");
-        System.Console.WriteLine("3. Lägg till författare");
-        System.Console.WriteLine("4. Visa författare");
-        System.Console.WriteLine("5. Lägg till lån");
-        System.Console.WriteLine("6. Visa lån");
-        System.Console.WriteLine("7. Visa låne historik");
-        System.Console.WriteLine("8. Lägg till BokFörfattare");
-        System.Console.WriteLine("9. visa bokFörfattare");
-        System.Console.WriteLine("10. Lista alla böcker som mer än en författare har bidragt i");
-        System.Console.WriteLine("11. Lista alla författare som har bidragt i en viss bok");
-        System.Console.WriteLine("12. Tabort bok");
-        System.Console.WriteLine("13. Tabort förattare");
-        System.Console.WriteLine("14. Stäng av bibloteket");
-        System.Console.WriteLine("Skriv in ditt val:");
+
 
         bool run = true;
 
         while (run)
         {
+            System.Console.WriteLine("Min biblotek");
+            System.Console.WriteLine("1. Lägg till böcker");
+            System.Console.WriteLine("2. Visa böcker");
+            System.Console.WriteLine("3. Lägg till författare");
+            System.Console.WriteLine("4. Visa författare");
+            System.Console.WriteLine("5. Lägg till lån");
+            System.Console.WriteLine("6. Visa lån");
+            System.Console.WriteLine("7. Visa låne historik");
+            System.Console.WriteLine("8. Lägg till BokFörfattare");
+            System.Console.WriteLine("9. visa bokFörfattare");
+            System.Console.WriteLine("10. Lista alla böcker som mer än en författare har bidragt i");
+            System.Console.WriteLine("11. Lista alla författare som har bidragt i en viss bok");
+            System.Console.WriteLine("12. Tabort bok");
+            System.Console.WriteLine("13. Tabort förattare");
+            System.Console.WriteLine("14. Stäng av bibloteket");
+            System.Console.WriteLine("Skriv in ditt val:");
+
             string val = Console.ReadLine();
             switch (val)
             {
